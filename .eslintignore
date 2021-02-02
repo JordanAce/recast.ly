@@ -3,5 +3,6 @@
 **/bower_components
 **/vendor
 **/*.min.js
+**/index.js
 client/data/*
 compiled/
