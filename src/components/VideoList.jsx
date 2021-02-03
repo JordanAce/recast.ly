@@ -1,6 +1,8 @@
+import exampleVideoData from 'src/data/exampleVideoData.js';
+console.log(exampleVideoData[0].kind);
 var VideoList = () => (
   <div className="video-list">
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em>{exampleVideoData[0].kind}</h5></div>
     <div><h5><em>videoListEntry</em> view goes here</h5></div>
     <div><h5><em>videoListEntry</em> view goes here</h5></div>
     <div><h5><em>videoListEntry</em> view goes here</h5></div>
