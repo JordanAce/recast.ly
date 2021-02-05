@@ -6,7 +6,7 @@ var VideoList = (props) => {
 
   for (let i = 0; i < props.videos.length; i++) {
     allVideos.push(
-      <div><h5>{<VideoListEntry video={props.videos[i]} />}</h5></div>
+      <VideoListEntry video={props.videos[i]} />
     );
   }
 
