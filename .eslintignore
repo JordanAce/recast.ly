@@ -4,5 +4,6 @@
 **/vendor
 **/*.min.js
 **/index.js
+**/VideoList.jsx
 client/data/*
 compiled/
