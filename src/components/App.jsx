@@ -10,7 +10,6 @@ class App extends React.Component {
     this.state = {
       fullVideoList: exampleVideoData,
       currentVideo: exampleVideoData[0],
-      testFunction: [1, 2],
     };
 
     this.changeVideo = this.changeVideo.bind(this);
@@ -34,7 +33,7 @@ class App extends React.Component {
             <div><h5><em>videoPlayer</em><VideoPlayer video={this.state.currentVideo} /></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em>videoList</em><VideoList videos={this.state.fullVideoList} testFunction={this.state.testFunction} clickFunction={this.changeVideo} /></h5></div>
+            <div><h5><em>videoList</em><VideoList videos={this.state.fullVideoList} clickFunction={this.changeVideo} /></h5></div>
           </div>
         </div>
       </div>

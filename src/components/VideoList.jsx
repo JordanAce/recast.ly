@@ -4,7 +4,6 @@ var VideoList = (props) => {
 
   let allVideos = [];
 
-
   for (let i = 0; i < props.videos.length; i++) {
     allVideos.push(
       <VideoListEntry video={props.videos[i]} clickFunction={props.clickFunction} />
