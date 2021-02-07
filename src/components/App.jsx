@@ -16,17 +16,24 @@ class App extends React.Component {
 
     this.changeVideo = this.changeVideo.bind(this);
     this.changeVideoList = this.changeVideoList.bind(this);
+    this.clickSearcher = this.clickSearcher.bind(this);
 
   }
 
   changeVideoList(newVideoList) {
     this.setState({fullVideoList: newVideoList});
-    // searchYouTube({max: 5, query: 'Jordan', key: YOUTUBE_API_KEY, this.setState();});
-    // {fullVideoList: data}
   }
 
   changeVideo(newVideo) {
     this.setState({currentVideo: newVideo});
+  }
+
+  clickSearcher(inputQuery) {
+    searchYouTube({max: 5, query: inputQuery, key: YOUTUBE_API_KEY}, (data) => {
+      this.setState(
+        {fullVideoList: data, currentVideo: data[0]}
+      );
+    });
   }
 
   componentDidMount() {
@@ -42,7 +49,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em><Search clickFunction={this.changeVideoList} /></h5></div>
+            <div><h5><em>search</em><Search clickFunction={this.clickSearcher} /></h5></div>
           </div>
         </nav>
         <div className="row">

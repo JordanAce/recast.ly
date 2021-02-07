@@ -6,16 +6,25 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      query: 'test'
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(event) {
+    this.setState({query: event.target.value});
+  }
+
+  handleSubmit(event) {
+    this.props.clickFunction(this.state.query);
+  }
 
   render() {
     return (
       <div className="search-bar form-inline">
-        <input className="form-control" type="text" />
-        <button className="btn hidden-sm-down" onClick={() => props.clickFunction()}>
+        <input className="form-control" type="text" query={this.state.query} onChange={this.handleChange} />
+        <button className="btn hidden-sm-down" onClick={() => this.handleSubmit()}>
           <span className="glyphicon glyphicon-search"></span>
         </button>
       </div>
