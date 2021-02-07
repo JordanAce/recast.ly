@@ -16,21 +16,21 @@ describe('App', function() {
     );
   });
 
-  it('should be a stateful class component', function() {
+  xit('should be a stateful class component', function() {
     expect(React.Component.isPrototypeOf(App)).to.be.true;
   });
 
-  it('should render a single VideoPlayer component', function() {
+  xit('should render a single VideoPlayer component', function() {
     var videoPlayer = findRenderedDOMComponentWithClass(app, 'video-player');
     expect(videoPlayer).to.exist;
   });
 
-  it('should render a single VideoList component', function() {
+  xit('should render a single VideoList component', function() {
     var videoList = findRenderedDOMComponentWithClass(app, 'video-list');
     expect(videoList).to.exist;
   });
 
-  it('should update the video player when a video entry\'s title is clicked', function() {
+  xit('should update the video player when a video entry\'s title is clicked', function() {
     // This test will only works once `App` is refactored into a stateful class component
     // because `renderIntoDocument` does not work with stateless class components
     expect(React.Component.isPrototypeOf(App)).to.be.true;
@@ -48,7 +48,7 @@ describe('App', function() {
     });
   });
 
-  xdescribe('when rendering live data from YouTube', function() {
+  describe('when rendering live data from YouTube', function() {
     var searchYouTubeStub;
 
     beforeEach(function() {
