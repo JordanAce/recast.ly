@@ -1,6 +1,6 @@
 import VideoListEntry from '../../src/components/VideoListEntry.js';
 
-describe('VideoListEntry', function() {
+xdescribe('VideoListEntry', function() {
   var {
     renderIntoDocument,
     findRenderedDOMComponentWithClass

@@ -1,7 +1,7 @@
 import VideoList from '../../src/components/VideoList.js';
 import VideoListEntry from '../../src/components/VideoListEntry.js';
 
-describe('VideoList', function() {
+xdescribe('VideoList', function() {
   // When testing a React component that renders other nested components,
   // it's a common practice to "shallow render" the component, or render
   // only a single level deep. This isolates the component from it's children

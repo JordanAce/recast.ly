@@ -1,7 +1,9 @@
 import VideoList from '/compiled/src/components/VideoList.js';
 import exampleVideoData from '/compiled/src/data/exampleVideoData.js';
 import VideoPlayer from '/compiled/src/components/VideoPlayer.js';
-
+import searchYouTube from '/compiled/src/lib/searchYouTube.js';
+import Search from '/compiled/src/components/Search.js';
+import YOUTUBE_API_KEY from '/compiled/src/config/youtube.js';
 
 class App extends React.Component {
 
@@ -10,15 +12,29 @@ class App extends React.Component {
     this.state = {
       fullVideoList: exampleVideoData,
       currentVideo: exampleVideoData[0],
-      testFunction: [1, 2],
     };
 
     this.changeVideo = this.changeVideo.bind(this);
+    this.changeVideoList = this.changeVideoList.bind(this);
 
+  }
+
+  changeVideoList(newVideoList) {
+    this.setState({fullVideoList: newVideoList});
+    // searchYouTube({max: 5, query: 'Jordan', key: YOUTUBE_API_KEY, this.setState();});
+    // {fullVideoList: data}
   }
 
   changeVideo(newVideo) {
     this.setState({currentVideo: newVideo});
+  }
+
+  componentDidMount() {
+    searchYouTube({max: 5, query: 'schenectady', key: YOUTUBE_API_KEY}, (data) => {
+      this.setState(
+        {fullVideoList: data, currentVideo: data[0]}
+      );
+    });
   }
 
   render() {
@@ -26,7 +42,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div onClick={this.changeVideo}><h5><em>search</em> view goes here</h5></div>
+            <div><h5><em>search</em><Search clickFunction={this.changeVideoList} /></h5></div>
           </div>
         </nav>
         <div className="row">
@@ -34,12 +50,16 @@ class App extends React.Component {
             <div><h5><em>videoPlayer</em><VideoPlayer video={this.state.currentVideo} /></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em>videoList</em><VideoList videos={this.state.fullVideoList} testFunction={this.state.testFunction} clickFunction={this.changeVideo} /></h5></div>
+            <div><h5><em>videoList</em><VideoList videos={this.state.fullVideoList} clickFunction={this.changeVideo} /></h5></div>
           </div>
         </div>
       </div>
     );
   }
+
+
+
+
 }
 
 
